@@ -1,16 +1,114 @@
 [
   {
+    "objectID": "map.html",
+    "href": "map.html",
+    "title": "Interactive Choropleth Map: Sarasota County Census Tracts",
+    "section": "",
+    "text": "This interactive choropleth map displays the percentage of Hispanic or Latino residents (B03002_012E / B03002_001E) across all 122 census tracts in Sarasota County, Florida, using official 2024 U.S. Census TIGER/Line cartographic boundaries.\n\nHover over any census tract to see its population counts, 90% margin of error, and full racial/ethnic breakdown.\nSwitch basemaps in the top-right corner between Light Basemap, Street Map, and Satellite."
+  },
+  {
+    "objectID": "map.html#hispanic-or-latino-share-across-sarasota-county-tracts",
+    "href": "map.html#hispanic-or-latino-share-across-sarasota-county-tracts",
+    "title": "Interactive Choropleth Map: Sarasota County Census Tracts",
+    "section": "",
+    "text": "This interactive choropleth map displays the percentage of Hispanic or Latino residents (B03002_012E / B03002_001E) across all 122 census tracts in Sarasota County, Florida, using official 2024 U.S. Census TIGER/Line cartographic boundaries.\n\nHover over any census tract to see its population counts, 90% margin of error, and full racial/ethnic breakdown.\nSwitch basemaps in the top-right corner between Light Basemap, Street Map, and Satellite."
+  },
+  {
+    "objectID": "map.html#highest-concentration-census-tracts",
+    "href": "map.html#highest-concentration-census-tracts",
+    "title": "Interactive Choropleth Map: Sarasota County Census Tracts",
+    "section": "Highest-Concentration Census Tracts",
+    "text": "Highest-Concentration Census Tracts\nWhile Hispanic or Latino residents represent 10.66% (48,971 residents) of Sarasota County overall, several northern and central Sarasota census tracts have substantially higher shares—led by Census Tract 12.02 at 42.9%."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "The Changing Face of America",
+    "title": "The Changing Face of America: Sarasota County, FL",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "An interactive demographic exploration of Sarasota County, Florida using official 2020–2024 American Community Survey (ACS) 5-Year Estimates (Table B03002) and 2024 U.S. Census TIGER/Line census tract boundaries."
+  },
+  {
+    "objectID": "index.html#key-demographic-snapshot-2024-acs-5-year",
+    "href": "index.html#key-demographic-snapshot-2024-acs-5-year",
+    "title": "The Changing Face of America: Sarasota County, FL",
+    "section": "Key Demographic Snapshot (2024 ACS 5-Year)",
+    "text": "Key Demographic Snapshot (2024 ACS 5-Year)\n\n\n\nTotal Population\n\n\n459,547\n\n\nAcross 122 land census tracts\n\n\n\n\nHispanic or Latino\n\n\n10.7%\n\n\n48,971 residents (of any race)\n\n\n\n\nRacial & Ethnic Minorities\n\n\n20.0%\n\n\n91,760 Hispanic & Non-White residents\n\n\n\n\nHighest Hispanic Tract\n\n\n42.9%\n\n\nCensus Tract 12.02 (1,800 residents)"
+  },
+  {
+    "objectID": "index.html#interactive-census-tract-map-preview",
+    "href": "index.html#interactive-census-tract-map-preview",
+    "title": "The Changing Face of America: Sarasota County, FL",
+    "section": "Interactive Census Tract Map Preview",
+    "text": "Interactive Census Tract Map Preview\nHover over or click any census tract in Sarasota County to inspect its Hispanic or Latino share, total population, and full mutually exclusive racial/ethnic profile. Visit the Interactive Map page for a larger view and neighborhood-level comparisons."
+  },
+  {
+    "objectID": "index.html#county-wide-racial-ethnic-composition",
+    "href": "index.html#county-wide-racial-ethnic-composition",
+    "title": "The Changing Face of America: Sarasota County, FL",
+    "section": "County-Wide Racial & Ethnic Composition",
+    "text": "County-Wide Racial & Ethnic Composition\nAll categories below come from U.S. Census Bureau Table B03002 (Hispanic or Latino Origin by Race), ensuring that Hispanic/Latino residents and Non-Hispanic racial categories are strictly mutually exclusive and sum to 100.0% of Sarasota County’s population. See the Demographics page for detailed breakdowns."
   },
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "About & Methodology",
     "section": "",
-    "text": "About this site"
+    "text": "The Changing Face of America: Sarasota County, Florida is a data science project built with R, the tidyverse, Leaflet, Plotly, and Quarto. It examines the geographic distribution and demographic composition of Sarasota County residents using official U.S. Census Bureau data."
+  },
+  {
+    "objectID": "about.html#project-overview",
+    "href": "about.html#project-overview",
+    "title": "About & Methodology",
+    "section": "",
+    "text": "The Changing Face of America: Sarasota County, Florida is a data science project built with R, the tidyverse, Leaflet, Plotly, and Quarto. It examines the geographic distribution and demographic composition of Sarasota County residents using official U.S. Census Bureau data."
+  },
+  {
+    "objectID": "about.html#official-data-sources",
+    "href": "about.html#official-data-sources",
+    "title": "About & Methodology",
+    "section": "Official Data Sources",
+    "text": "Official Data Sources\n\nU.S. Census Bureau — 2020–2024 American Community Survey (ACS) 5-Year Estimates\n\nTable B03002 (Hispanic or Latino Origin by Race): Provides population counts and 90% margins of error for Sarasota County (FIPS 12115) and all census tracts within the county.\nRetrieved via tidycensus / the official U.S. Census Bureau API (data.census.gov/api/access/data/table?id=ACSDT5Y2024.B03002).\n\nU.S. Census Bureau — 2024 TIGER/Line Cartographic Boundary Shapefiles\n\nRetrieved via the tigris R package (tigris::tracts(state = \"FL\", county = \"Sarasota\", year = 2024, cb = TRUE)) and projected to WGS 84 (EPSG:4326) for interactive mapping."
+  },
+  {
+    "objectID": "about.html#methodology-mutually-exclusive-categories",
+    "href": "about.html#methodology-mutually-exclusive-categories",
+    "title": "About & Methodology",
+    "section": "Methodology & Mutually Exclusive Categories",
+    "text": "Methodology & Mutually Exclusive Categories\nTo avoid overlapping racial and ethnic categories, all percentages are computed from Table B03002 using the total population denominator (B03002_001E = 459,547):\n\\[\\text{Percentage in Group } i = \\frac{\\text{Estimate}_i}{\\text{Total Population (B03002\\_001E)}} \\times 100\\]\n\n\n\n\n\n\n\n\nCategory\nACS Variable\nDescription\n\n\n\n\nHispanic or Latino (Any Race)\nB03002_012E\nAll residents of Hispanic or Latino origin, regardless of race\n\n\nWhite Alone (Non-Hispanic)\nB03002_003E\nNon-Hispanic White alone\n\n\nBlack or African American Alone (Non-Hispanic)\nB03002_004E\nNon-Hispanic Black or African American alone\n\n\nAmerican Indian & Alaska Native Alone (Non-Hispanic)\nB03002_005E\nNon-Hispanic AIAN alone\n\n\nAsian Alone (Non-Hispanic)\nB03002_006E\nNon-Hispanic Asian alone\n\n\nNative Hawaiian & Pacific Islander Alone (Non-Hispanic)\nB03002_007E\nNon-Hispanic NHPI alone\n\n\nSome Other Race Alone (Non-Hispanic)\nB03002_008E\nNon-Hispanic Some Other Race alone\n\n\nTwo or More Races (Non-Hispanic)\nB03002_009E\nNon-Hispanic Multiracial\n\n\n\nBecause these eight sub-populations partition the total population (B03002_001E) without overlap, their counts sum exactly to 459,547 (100.00%)."
+  },
+  {
+    "objectID": "about.html#reproducible-project-structure",
+    "href": "about.html#reproducible-project-structure",
+    "title": "About & Methodology",
+    "section": "Reproducible Project Structure",
+    "text": "Reproducible Project Structure\n\ndownload_data.R: Downloads official 2024 ACS 5-year estimates and 2024 TIGER/Line census tract geometries for Sarasota County, saving them as .rds files in data/.\nanalysis.R: Cleans the data, validates mutually exclusive sums, calculates tract-level percentages, and defines the interactive leaflet map and plotly chart builders.\nindex.qmd, map.qmd, demographics.qmd, about.qmd: Quarto pages forming the website."
+  },
+  {
+    "objectID": "demographics.html",
+    "href": "demographics.html",
+    "title": "Demographics of Sarasota County, Florida",
+    "section": "",
+    "text": "In U.S. Census data, Hispanic or Latino origin is measured separately from race, meaning that simply adding race counts from Table B02001 to Hispanic counts from Table B03003 double-counts Hispanic residents and produces percentages exceeding 100%.\nTo ensure strictly mutually exclusive categories that sum to 100.00%, this analysis uses ACS Table B03002 (Hispanic or Latino Origin by Race):\n\nHispanic or Latino (Any Race): B03002_012E (48,971 residents, 10.66%)\nNon-Hispanic Racial Groups: B03002_003E through B03002_009E (410,576 residents, 89.34%)"
+  },
+  {
+    "objectID": "demographics.html#mutually-exclusive-racial-ethnic-breakdown",
+    "href": "demographics.html#mutually-exclusive-racial-ethnic-breakdown",
+    "title": "Demographics of Sarasota County, Florida",
+    "section": "",
+    "text": "In U.S. Census data, Hispanic or Latino origin is measured separately from race, meaning that simply adding race counts from Table B02001 to Hispanic counts from Table B03003 double-counts Hispanic residents and produces percentages exceeding 100%.\nTo ensure strictly mutually exclusive categories that sum to 100.00%, this analysis uses ACS Table B03002 (Hispanic or Latino Origin by Race):\n\nHispanic or Latino (Any Race): B03002_012E (48,971 residents, 10.66%)\nNon-Hispanic Racial Groups: B03002_003E through B03002_009E (410,576 residents, 89.34%)"
+  },
+  {
+    "objectID": "demographics.html#tract-level-composition-in-tracts-with-the-largest-hispanic-populations",
+    "href": "demographics.html#tract-level-composition-in-tracts-with-the-largest-hispanic-populations",
+    "title": "Demographics of Sarasota County, Florida",
+    "section": "Tract-Level Composition in Tracts with the Largest Hispanic Populations",
+    "text": "Tract-Level Composition in Tracts with the Largest Hispanic Populations\nThe interactive stacked bar chart below compares the mutually exclusive racial and ethnic shares across the 20 Sarasota County census tracts with the largest Hispanic or Latino populations. Every tract bar sums to 100% of that tract’s total population."
+  },
+  {
+    "objectID": "demographics.html#official-summary-table-sarasota-county-2024-acs-5-year",
+    "href": "demographics.html#official-summary-table-sarasota-county-2024-acs-5-year",
+    "title": "Demographics of Sarasota County, Florida",
+    "section": "Official Summary Table (Sarasota County, 2024 ACS 5-Year)",
+    "text": "Official Summary Table (Sarasota County, 2024 ACS 5-Year)\n\n\n\n\n\n\n\n\n\n\n\n\nRacial / Ethnic Group (Mutually Exclusive)\nACS Variable\nEstimated Population\n90% Margin of Error\nShare of Total (%)\n\n\n\n\nWhite Alone (Non-Hispanic)\nB03002_003E\n367,787\n±1,024\n80.03%\n\n\nHispanic or Latino (Any Race)\nB03002_012E\n48,971\nControlled (±0)\n10.66%\n\n\nBlack or African American Alone (Non-Hispanic)\nB03002_004E\n17,786\n±723\n3.87%\n\n\nTwo or More Races (Non-Hispanic)\nB03002_009E\n13,099\n±1,344\n2.85%\n\n\nAsian Alone (Non-Hispanic)\nB03002_006E\n8,790\n±445\n1.91%\n\n\nSome Other Race Alone (Non-Hispanic)\nB03002_008E\n2,409\n±572\n0.52%\n\n\nAmerican Indian & Alaska Native Alone (Non-Hispanic)\nB03002_005E\n494\n±159\n0.11%\n\n\nNative Hawaiian & Pacific Islander Alone (Non-Hispanic)\nB03002_007E\n211\n±25\n0.05%"
   }
 ]

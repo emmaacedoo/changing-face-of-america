@@ -1,5 +1,41 @@
 ---
-title: "About"
+title: "About & Methodology"
+subtitle: "Data Sources, Definitions, and Reproducible R Workflow"
 ---
 
-About this site
+## Project Overview
+
+**The Changing Face of America: Sarasota County, Florida** is a data science project built with **R**, the **tidyverse**, **Leaflet**, **Plotly**, and **Quarto**. It examines the geographic distribution and demographic composition of Sarasota County residents using official U.S. Census Bureau data.
+
+## Official Data Sources
+
+1. **U.S. Census Bureau — 2020–2024 American Community Survey (ACS) 5-Year Estimates**
+   - **Table `B03002` (*Hispanic or Latino Origin by Race*):** Provides population counts and 90% margins of error for Sarasota County (`FIPS 12115`) and all census tracts within the county.
+   - Retrieved via `tidycensus` / the official U.S. Census Bureau API (`data.census.gov/api/access/data/table?id=ACSDT5Y2024.B03002`).
+2. **U.S. Census Bureau — 2024 TIGER/Line Cartographic Boundary Shapefiles**
+   - Retrieved via the `tigris` R package (`tigris::tracts(state = "FL", county = "Sarasota", year = 2024, cb = TRUE)`) and projected to `WGS 84 (EPSG:4326)` for interactive mapping.
+
+## Methodology & Mutually Exclusive Categories
+
+To avoid overlapping racial and ethnic categories, all percentages are computed from **Table B03002** using the total population denominator (`B03002_001E = 459,547`):
+
+$$\text{Percentage in Group } i = \frac{\text{Estimate}_i}{\text{Total Population (B03002\_001E)}} \times 100$$
+
+| Category | ACS Variable | Description |
+|---|---|---|
+| **Hispanic or Latino (Any Race)** | `B03002_012E` | All residents of Hispanic or Latino origin, regardless of race |
+| **White Alone (Non-Hispanic)** | `B03002_003E` | Non-Hispanic White alone |
+| **Black or African American Alone (Non-Hispanic)** | `B03002_004E` | Non-Hispanic Black or African American alone |
+| **American Indian & Alaska Native Alone (Non-Hispanic)** | `B03002_005E` | Non-Hispanic AIAN alone |
+| **Asian Alone (Non-Hispanic)** | `B03002_006E` | Non-Hispanic Asian alone |
+| **Native Hawaiian & Pacific Islander Alone (Non-Hispanic)** | `B03002_007E` | Non-Hispanic NHPI alone |
+| **Some Other Race Alone (Non-Hispanic)** | `B03002_008E` | Non-Hispanic Some Other Race alone |
+| **Two or More Races (Non-Hispanic)** | `B03002_009E` | Non-Hispanic Multiracial |
+
+Because these eight sub-populations partition the total population (`B03002_001E`) without overlap, their counts sum exactly to **459,547** (**100.00%**).
+
+## Reproducible Project Structure
+
+- [`download_data.R`](download_data.R): Downloads official 2024 ACS 5-year estimates and 2024 TIGER/Line census tract geometries for Sarasota County, saving them as `.rds` files in `data/`.
+- [`analysis.R`](analysis.R): Cleans the data, validates mutually exclusive sums, calculates tract-level percentages, and defines the interactive `leaflet` map and `plotly` chart builders.
+- [`index.qmd`](index.qmd), [`map.qmd`](map.qmd), [`demographics.qmd`](demographics.qmd), [`about.qmd`](about.qmd): Quarto pages forming the website.

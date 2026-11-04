@@ -1,0 +1,35 @@
+---
+title: "Interactive Choropleth Map: Sarasota County Census Tracts"
+subtitle: "Percentage of Hispanic or Latino Residents by Census Tract (2024 ACS 5-Year Estimates)"
+echo: false
+message: false
+warning: false
+---
+
+```{r}
+source("analysis.R")
+```
+
+## Hispanic or Latino Share Across Sarasota County Tracts
+
+This interactive choropleth map displays the percentage of **Hispanic or Latino** residents (`B03002_012E / B03002_001E`) across all **`r sarasota_summary$n_tracts` census tracts** in Sarasota County, Florida, using official **2024 U.S. Census TIGER/Line cartographic boundaries**.
+
+- **Hover** over any census tract to see its population counts, 90% margin of error, and full racial/ethnic breakdown.
+- **Switch basemaps** in the top-right corner between *Light Basemap*, *Street Map*, and *Satellite*.
+
+::: {.viz-card}
+```{r}
+#| fig-height: 7
+build_hispanic_map()
+```
+:::
+
+## Highest-Concentration Census Tracts
+
+While Hispanic or Latino residents represent **`r sprintf("%.2f%%", sarasota_summary$hispanic_pct)`** (`r comma(sarasota_summary$hispanic_pop)` residents) of Sarasota County overall, several northern and central Sarasota census tracts have substantially higher shares—led by **`r sarasota_summary$max_hispanic_tract$tract_label`** at **`r sprintf("%.1f%%", sarasota_summary$max_hispanic_tract$pct_hispanic)`**.
+
+::: {.viz-card}
+```{r}
+build_top_tracts_chart()
+```
+:::

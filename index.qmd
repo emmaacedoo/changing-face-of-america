@@ -1,7 +1,64 @@
 ---
-title: "The Changing Face of America"
+title: "The Changing Face of America: Sarasota County, FL"
+subtitle: "Exploring Demographic Patterns with Official 2024 U.S. Census ACS 5-Year Data"
+echo: false
+message: false
+warning: false
 ---
 
-This is a Quarto website.
+```{r}
+source("analysis.R")
+```
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+::: {.hero-banner}
+# The Changing Face of America: Sarasota County, Florida
+An interactive demographic exploration of **Sarasota County, Florida** using official **2020–2024 American Community Survey (ACS) 5-Year Estimates** (`Table B03002`) and **2024 U.S. Census TIGER/Line** census tract boundaries.
+:::
+
+## Key Demographic Snapshot (2024 ACS 5-Year)
+
+:::: {.kpi-grid}
+::: {.kpi-card}
+<div class="kpi-label">Total Population</div>
+<div class="kpi-value">`r comma(sarasota_summary$total_pop)`</div>
+<div class="kpi-sub">Across `r sarasota_summary$n_tracts` land census tracts</div>
+:::
+
+::: {.kpi-card .coral}
+<div class="kpi-label">Hispanic or Latino</div>
+<div class="kpi-value">`r sprintf("%.1f%%", sarasota_summary$hispanic_pct)`</div>
+<div class="kpi-sub">`r comma(sarasota_summary$hispanic_pop)` residents (of any race)</div>
+:::
+
+::: {.kpi-card .teal}
+<div class="kpi-label">Racial & Ethnic Minorities</div>
+<div class="kpi-value">`r sprintf("%.1f%%", sarasota_summary$bipoc_pct)`</div>
+<div class="kpi-sub">`r comma(sarasota_summary$bipoc_pop)` Hispanic & Non-White residents</div>
+:::
+
+::: {.kpi-card .amber}
+<div class="kpi-label">Highest Hispanic Tract</div>
+<div class="kpi-value">`r sprintf("%.1f%%", sarasota_summary$max_hispanic_tract$pct_hispanic)`</div>
+<div class="kpi-sub">`r sarasota_summary$max_hispanic_tract$tract_label` (`r comma(sarasota_summary$max_hispanic_tract$hispanicE)` residents)</div>
+:::
+::::
+
+## Interactive Census Tract Map Preview
+
+Hover over or click any census tract in Sarasota County to inspect its **Hispanic or Latino share**, total population, and full mutually exclusive racial/ethnic profile. Visit the [Interactive Map](map.qmd) page for a larger view and neighborhood-level comparisons.
+
+::: {.viz-card}
+```{r}
+build_hispanic_map()
+```
+:::
+
+## County-Wide Racial & Ethnic Composition
+
+All categories below come from **U.S. Census Bureau Table B03002** (*Hispanic or Latino Origin by Race*), ensuring that Hispanic/Latino residents and Non-Hispanic racial categories are **strictly mutually exclusive** and sum to **100.0%** of Sarasota County's population. See the [Demographics](demographics.qmd) page for detailed breakdowns.
+
+::: {.viz-card}
+```{r}
+build_race_ethnicity_bar()
+```
+:::

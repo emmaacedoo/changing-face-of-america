@@ -1,0 +1,51 @@
+---
+title: "Demographics of Sarasota County, Florida"
+subtitle: "Mutually Exclusive Racial & Ethnic Composition (2020–2024 ACS 5-Year Estimates)"
+echo: false
+message: false
+warning: false
+---
+
+```{r}
+source("analysis.R")
+```
+
+## Mutually Exclusive Racial & Ethnic Breakdown
+
+In U.S. Census data, **Hispanic or Latino origin** is measured separately from **race**, meaning that simply adding race counts from `Table B02001` to Hispanic counts from `Table B03003` double-counts Hispanic residents and produces percentages exceeding 100%.
+
+To ensure **strictly mutually exclusive categories** that sum to **100.00%**, this analysis uses **ACS Table B03002 (*Hispanic or Latino Origin by Race*)**:
+
+- **Hispanic or Latino (Any Race):** `B03002_012E` (`48,971` residents, `10.66%`)
+- **Non-Hispanic Racial Groups:** `B03002_003E` through `B03002_009E` (`410,576` residents, `89.34%`)
+
+::: {.viz-card}
+```{r}
+build_race_ethnicity_bar()
+```
+:::
+
+## Tract-Level Composition in Tracts with the Largest Hispanic Populations
+
+The interactive stacked bar chart below compares the mutually exclusive racial and ethnic shares across the 20 Sarasota County census tracts with the largest Hispanic or Latino populations. Every tract bar sums to **100%** of that tract's total population.
+
+::: {.viz-card}
+```{r}
+#| fig-height: 6.5
+build_tract_stacked_chart()
+```
+:::
+
+## Official Summary Table (Sarasota County, 2024 ACS 5-Year)
+
+```{r}
+sarasota_race_composition |>
+  transmute(
+    `Racial / Ethnic Group (Mutually Exclusive)` = group,
+    `ACS Variable` = paste0("B03002_", c("003", "012", "004", "009", "006", "008", "005", "007"), "E"),
+    `Estimated Population` = comma(estimate),
+    `90% Margin of Error` = if_else(moe == 0, "Controlled (\u00b10)", paste0("\u00b1", comma(moe))),
+    `Share of Total (%)` = pct_label
+  ) |>
+  knitr::kable(align = c("l", "c", "r", "r", "r"))
+```
