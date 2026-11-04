@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – The Changing Face of America</title>
+<title>About &amp; Methodology – The Changing Face of America</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-22ddd0bc8811bb05b22c9f1af5ad3da3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-70203b5691dd670a4a81bd6aaedeaf34.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,7 +73,37 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -100,8 +130,16 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./map.html"> 
+<span class="menu-text">Interactive Map</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./demographics.html"> 
+<span class="menu-text">Demographics</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link active" href="./about.html" aria-current="page"> 
-<span class="menu-text">About</span></a>
+<span class="menu-text">About &amp; Methodology</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -111,23 +149,33 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#project-overview" id="toc-project-overview" class="nav-link active" data-scroll-target="#project-overview">Project Overview</a></li>
+  <li><a href="#official-data-sources" id="toc-official-data-sources" class="nav-link" data-scroll-target="#official-data-sources">Official Data Sources</a></li>
+  <li><a href="#methodology-mutually-exclusive-categories" id="toc-methodology-mutually-exclusive-categories" class="nav-link" data-scroll-target="#methodology-mutually-exclusive-categories">Methodology &amp; Mutually Exclusive Categories</a></li>
+  <li><a href="#reproducible-project-structure" id="toc-reproducible-project-structure" class="nav-link" data-scroll-target="#reproducible-project-structure">Reproducible Project Structure</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">About &amp; Methodology</h1>
+<p class="subtitle lead">Data Sources, Definitions, and Reproducible R Workflow</p>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -139,9 +187,96 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>About this site</p>
+<section id="project-overview" class="level2">
+<h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
+<p><strong>The Changing Face of America: Sarasota County, Florida</strong> is a data science project built with <strong>R</strong>, the <strong>tidyverse</strong>, <strong>Leaflet</strong>, <strong>Plotly</strong>, and <strong>Quarto</strong>. It examines the geographic distribution and demographic composition of Sarasota County residents using official U.S. Census Bureau data.</p>
+</section>
+<section id="official-data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="official-data-sources">Official Data Sources</h2>
+<ol type="1">
+<li><strong>U.S. Census Bureau — 2020–2024 American Community Survey (ACS) 5-Year Estimates</strong>
+<ul>
+<li><strong>Table <code>B03002</code> (<em>Hispanic or Latino Origin by Race</em>):</strong> Provides population counts and 90% margins of error for Sarasota County (<code>FIPS 12115</code>) and all census tracts within the county.</li>
+<li>Retrieved via <code>tidycensus</code> / the official U.S. Census Bureau API (<code>data.census.gov/api/access/data/table?id=ACSDT5Y2024.B03002</code>).</li>
+</ul></li>
+<li><strong>U.S. Census Bureau — 2024 TIGER/Line Cartographic Boundary Shapefiles</strong>
+<ul>
+<li>Retrieved via the <code>tigris</code> R package (<code>tigris::tracts(state = "FL", county = "Sarasota", year = 2024, cb = TRUE)</code>) and projected to <code>WGS 84 (EPSG:4326)</code> for interactive mapping.</li>
+</ul></li>
+</ol>
+</section>
+<section id="methodology-mutually-exclusive-categories" class="level2">
+<h2 class="anchored" data-anchor-id="methodology-mutually-exclusive-categories">Methodology &amp; Mutually Exclusive Categories</h2>
+<p>To avoid overlapping racial and ethnic categories, all percentages are computed from <strong>Table B03002</strong> using the total population denominator (<code>B03002_001E = 459,547</code>):</p>
+<p><span class="math display">\[\text{Percentage in Group } i = \frac{\text{Estimate}_i}{\text{Total Population (B03002\_001E)}} \times 100\]</span></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>ACS Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Hispanic or Latino (Any Race)</strong></td>
+<td><code>B03002_012E</code></td>
+<td>All residents of Hispanic or Latino origin, regardless of race</td>
+</tr>
+<tr class="even">
+<td><strong>White Alone (Non-Hispanic)</strong></td>
+<td><code>B03002_003E</code></td>
+<td>Non-Hispanic White alone</td>
+</tr>
+<tr class="odd">
+<td><strong>Black or African American Alone (Non-Hispanic)</strong></td>
+<td><code>B03002_004E</code></td>
+<td>Non-Hispanic Black or African American alone</td>
+</tr>
+<tr class="even">
+<td><strong>American Indian &amp; Alaska Native Alone (Non-Hispanic)</strong></td>
+<td><code>B03002_005E</code></td>
+<td>Non-Hispanic AIAN alone</td>
+</tr>
+<tr class="odd">
+<td><strong>Asian Alone (Non-Hispanic)</strong></td>
+<td><code>B03002_006E</code></td>
+<td>Non-Hispanic Asian alone</td>
+</tr>
+<tr class="even">
+<td><strong>Native Hawaiian &amp; Pacific Islander Alone (Non-Hispanic)</strong></td>
+<td><code>B03002_007E</code></td>
+<td>Non-Hispanic NHPI alone</td>
+</tr>
+<tr class="odd">
+<td><strong>Some Other Race Alone (Non-Hispanic)</strong></td>
+<td><code>B03002_008E</code></td>
+<td>Non-Hispanic Some Other Race alone</td>
+</tr>
+<tr class="even">
+<td><strong>Two or More Races (Non-Hispanic)</strong></td>
+<td><code>B03002_009E</code></td>
+<td>Non-Hispanic Multiracial</td>
+</tr>
+</tbody>
+</table>
+<p>Because these eight sub-populations partition the total population (<code>B03002_001E</code>) without overlap, their counts sum exactly to <strong>459,547</strong> (<strong>100.00%</strong>).</p>
+</section>
+<section id="reproducible-project-structure" class="level2">
+<h2 class="anchored" data-anchor-id="reproducible-project-structure">Reproducible Project Structure</h2>
+<ul>
+<li><a href="download_data.R"><code>download_data.R</code></a>: Downloads official 2024 ACS 5-year estimates and 2024 TIGER/Line census tract geometries for Sarasota County, saving them as <code>.rds</code> files in <code>data/</code>.</li>
+<li><a href="analysis.R"><code>analysis.R</code></a>: Cleans the data, validates mutually exclusive sums, calculates tract-level percentages, and defines the interactive <code>leaflet</code> map and <code>plotly</code> chart builders.</li>
+<li><a href="./index.html"><code>index.qmd</code></a>, <a href="./map.html"><code>map.qmd</code></a>, <a href="./demographics.html"><code>demographics.qmd</code></a>, <a href="./about.html"><code>about.qmd</code></a>: Quarto pages forming the website.</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -217,7 +352,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/emmaacedoo\.github\.io\/changing-face-of-america\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -549,4 +684,5 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
